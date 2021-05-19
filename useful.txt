@@ -1,0 +1,5 @@
+Mongodb credentials:    appUser:appUser123
+mongodb+srv://appUser:<password>@babycare.q105p.mongodb.net/test
+mongodb+srv://appUser:<password>@babycare.q105p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+//old DB_URI="mongodb://localhost:27017"

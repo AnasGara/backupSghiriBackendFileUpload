@@ -7,6 +7,7 @@ const {
 
   articleRoute.post('/add', async (req,res) =>{
     //* validate user input
+    
   const {
     title,
     image,
@@ -14,6 +15,7 @@ const {
     date,
     subject
   } = req.body;
+  
   const { isValid, errors } = validateArticleInput(
     title,
     image,

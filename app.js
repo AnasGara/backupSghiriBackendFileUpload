@@ -3,9 +3,11 @@ const app = express()
 const mongoose = require('mongoose')
 const routes = require('./routes')
 var cors = require('cors')
+const multer = require('multer')
+const bodyParser=require('body-parser')
+
 //* dotenv activation
 require('dotenv').config()
-
 app.use(cors());
 
 //* connect to db
@@ -17,7 +19,8 @@ mongoose.connect(DB_URI, (err) => {
 
 //* body parser activation
 app.use(express.json())
-
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json())
 
 //* routes activation
 app.use('', routes);

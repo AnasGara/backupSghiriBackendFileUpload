@@ -96,4 +96,6 @@ authRoute.post("/login", async (req, res) => {
     const token = await jwt.sign({ id: user._id, email }, JWT_PASSWORD);
     return res.status(201).json({ user: { token, userID: user._id } });
 });
+
+// 3ibara bch t5alaha public bch tnajm test3mlha  
 module.exports = authRoute;

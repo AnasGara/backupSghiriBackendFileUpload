@@ -1,6 +1,6 @@
 const express = require('express')
-const app = express()
-const mongoose = require('mongoose')
+const app = express() // var 
+const mongoose = require('mongoose') 
 const routes = require('./routes')
 var cors = require('cors')
 //* dotenv activation

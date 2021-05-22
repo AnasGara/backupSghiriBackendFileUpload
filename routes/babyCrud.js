@@ -34,7 +34,7 @@ babyRoute.post('/add', async (req, res) => {
   });
   const createdbaby = await newBaby.save();
   
-  return res.status(201).json({ babyStatus: "Created" });
+  return res.status(201).json({ baby:{firstName,gender,birthday,parentID}});
 
 })
 

@@ -18,7 +18,6 @@ const taskRoute = require('./taskCRUD.js');
 const rappelRoute = require('./rappelCRUD.js');
 const articleRoute = require('./articleCRUD.js');
 
-
 routes.use('/user', userRoute);
 routes.use('/auth', authRoute);
 routes.use('/baby', babyRoute);

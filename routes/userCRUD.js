@@ -60,4 +60,9 @@ userRoute.delete("/delete/:id", (req, res) => {
     });
 });
 
+
+//upload image
+
+
+
 module.exports = userRoute;

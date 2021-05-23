@@ -10,7 +10,7 @@ const {
   foodRoute.post('/add', async (req,res) =>{
     //* validate user input
   const {
-    quantity,
+    descr,
     date,
     foodName,
     babyID
@@ -18,7 +18,7 @@ const {
   const { isValid, errors } = validateFoodInput(
     date, 
     foodName,
-    quantity
+    descr
   );
   if (!isValid) {
     return res.status(400).json({ errors });
@@ -26,7 +26,7 @@ const {
   const newFood = foodModel({
     date, 
     foodName,
-    quantity,
+    descr,
     babyID
   });
   const createdFood = await newFood.save();
@@ -48,9 +48,9 @@ foodRoute.get("/all", (req, res) => {
 
 // API: update @put
 foodRoute.put("/update/:id", async (req, res) => {
-    const { date,quantity,foodName }=req.body;
+    const { date,descr,foodName }=req.body;
     const updatedFood= await foodModel.findByIdAndUpdate(req.params.id, {
-        quantity,foodName,
+      descr,foodName,
       date: Date(date)
       } );
        if (!updatedFood){

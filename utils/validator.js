@@ -79,13 +79,13 @@ module.exports.validateBottleInput = (date, quantity) => {
        isValid: Object.keys(errors).length < 1
     };
 }
-module.exports.validateFoodInput = (date,foodName, quantity) => {
+module.exports.validateFoodInput = (date,foodName, descr) => {
     const errors = {};
     if (!date.trim()) {
         errors.date = 'date must not be empty';
     }
-    if (!quantity.trim()) {
-        errors.quantity = 'Quantity must not be empty';
+    if (!descr.trim()) {
+        errors.descr = 'Quantity must not be empty';
     }  
     if (!foodName.trim()) {
         errors.foodName = 'FoodName must not be empty';
@@ -164,13 +164,13 @@ module.exports.validateDrugInput = (date, name) => {
 }
 
 //couche
-module.exports.validateCoucheInput = (date, type) => {
+module.exports.validateCoucheInput = (date, etat) => {
     const errors = {};
     if (!date.trim()) {
         errors.date = 'Date must not be empty';
     }
-    if (!type.trim()) {
-        errors.type = 'Type must not be empty';
+    if (!etat.trim()) {
+        errors.etat = 'Type must not be empty';
     }
     return {
         errors,

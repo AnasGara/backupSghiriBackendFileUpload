@@ -7,10 +7,9 @@ const requiredString = {
 
 const drugSchema = new mongoose.Schema({
     name : requiredString,
-    date: {
-        required: true,
-        type:Date
-    },
+    date:String ,
+    time:String,
+    dersc:String,
     babyID:requiredString
 })
 

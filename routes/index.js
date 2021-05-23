@@ -17,6 +17,7 @@ const pediatreRoute = require('./pediatreCRUD.js');
 const taskRoute = require('./taskCRUD.js');
 const rappelRoute = require('./rappelCRUD.js');
 const articleRoute = require('./articleCRUD.js');
+const allergieRoute=require('./AllergieCRUD')
 
 routes.use('/user', userRoute);
 routes.use('/auth', authRoute);
@@ -35,5 +36,6 @@ routes.use('/pediatre',pediatreRoute);
 routes.use('/task',taskRoute);
 routes.use('/rappel',rappelRoute);
 routes.use('/article',articleRoute)
+routes.use('/allergie',allergieRoute);
 
 module.exports = routes;

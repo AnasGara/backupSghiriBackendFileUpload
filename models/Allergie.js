@@ -6,9 +6,10 @@ const requiredString = {
 }
 
 const allergieSchema = new mongoose.Schema({
-    allergieName: requiredString,
-    descrp: requiredString,
-    date: requiredString
+    name: requiredString,
+    descrp: String,
+    date: String,
+    babyId:String
 })
 
-module.exports = mongoose.model('article', articleSchema)
+module.exports = mongoose.model('allergie', allergieSchema)

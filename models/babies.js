@@ -9,10 +9,7 @@ const babySchema = new mongoose.Schema({
     firstName: requiredString,
     image: String,
     gender: requiredString,
-    birthday: {
-        type: Date,
-        required: true,
-    },
+    birthday: String,
     parentID: requiredString
 })
 

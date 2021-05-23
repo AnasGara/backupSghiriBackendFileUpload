@@ -266,4 +266,18 @@ module.exports.validateArticleInput = (title,content) => {
         errors,
        isValid: Object.keys(errors).length < 1
     };
+   
+}
+module.exports.validateAllergieInput    = (name,content) => {
+    const errors = {};
+    if (!name.trim()) {
+        errors.name = 'allergieName must not be empty';
+    }
+  //  if (!content.trim()) {
+     //   errors.content = 'content must not be empty';
+    //}   
+    return {
+        errors,
+       isValid: Object.keys(errors).length < 1
+    };
 }

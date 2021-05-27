@@ -18,7 +18,7 @@ authRoute.get("/hello", (req, res) => {
 
 authRoute.post("/signup", async (req, res) => {
   //* validate user input
-  const {
+  const x={
     firstName,
     lastName,
     email,
@@ -65,6 +65,9 @@ authRoute.post("/signup", async (req, res) => {
   const token = await jwt.sign({ id: createdUser._id, email }, JWT_PASSWORD);
 
   return res.status(201).json({ user: {token, userID: createdUser._id } });
+  return res.status(201).json(
+    { user: { token, userID: createdUser._id, firstName,lastName, email, phoneNumber, password}});
+
 });
 
 authRoute.post("/login", async (req, res) => {
@@ -96,4 +99,7 @@ authRoute.post("/login", async (req, res) => {
     const token = await jwt.sign({ id: user._id, email }, JWT_PASSWORD);
     return res.status(201).json({ user: { token, userID: user._id } });
 });
+
+// 3ibara bch t5alaha public bch tnajm test3mlha  
+
 module.exports = authRoute;

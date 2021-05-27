@@ -10,19 +10,19 @@ const {
 coucheRoute.post('/add', async (req,res) =>{
     //* validate user input
   const {
-    type,
+    etat,
+    couleur,
     date,
     babyID
+    
   } = req.body;
-  const { isValid, errors } = validateCoucheInput(
-    type,
-    date
-  );
+  const { isValid, errors } = validateCoucheInput( etat, date);
   if (!isValid) {
     return res.status(400).json({ errors });
   }
   const newCouche = coucheModel({
-    type,
+    etat,
+    couleur,
     date,
     babyID
   });
@@ -46,9 +46,9 @@ coucheRoute.get("/all", (req, res) => {
  
 // API: update @put couche
 coucheRoute.put("/update/:id", async (req, res) => {
-    const { date,type }=req.body;
+    const { date,etat }=req.body;
     const updatedCouche= await coucheModel.findByIdAndUpdate(req.params.id, {
-        type,
+        etat,
       date: Date(date)
       } );
        if (!updatedCouche){

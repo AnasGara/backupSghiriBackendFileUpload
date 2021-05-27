@@ -12,6 +12,8 @@ const {
   const {
     name,
     date,
+    time,
+    dersc,
     babyID
   } = req.body;
   const { isValid, errors } = validateDrugInput(
@@ -24,6 +26,8 @@ const {
   const newDrug = drugModel({
     name,
     date,
+    time,
+    dersc,
     babyID
   });
   const createdDrug = await newDrug.save();

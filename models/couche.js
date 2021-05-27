@@ -6,11 +6,9 @@ const requiredString = {
 }
 
 const coucheSchema = new mongoose.Schema({
-    type: requiredString,
-    date: {
-        required: true,
-        type:Date
-    },
+    etat: requiredString,
+    couleur:String,
+    date:String,
     babyID:requiredString
 })
 

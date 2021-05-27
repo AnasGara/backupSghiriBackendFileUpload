@@ -55,6 +55,7 @@ module.exports.validateBabyInput = (firstName,gender,birthday) => {
         errors.firstName = 'firstName must not be empty';
     }
     if (!gender.trim()) {
+
         errors.gender = 'gender must not be empty';
     }
     if (!birthday.trim()) {
@@ -79,13 +80,13 @@ module.exports.validateBottleInput = (date, quantity) => {
        isValid: Object.keys(errors).length < 1
     };
 }
-module.exports.validateFoodInput = (date,foodName, quantity) => {
+module.exports.validateFoodInput = (date,foodName, descr) => {
     const errors = {};
     if (!date.trim()) {
         errors.date = 'date must not be empty';
     }
-    if (!quantity.trim()) {
-        errors.quantity = 'Quantity must not be empty';
+    if (!descr.trim()) {
+        errors.descr = 'Quantity must not be empty';
     }  
     if (!foodName.trim()) {
         errors.foodName = 'FoodName must not be empty';
@@ -164,13 +165,13 @@ module.exports.validateDrugInput = (date, name) => {
 }
 
 //couche
-module.exports.validateCoucheInput = (date, type) => {
+module.exports.validateCoucheInput = (date, etat) => {
     const errors = {};
     if (!date.trim()) {
         errors.date = 'Date must not be empty';
     }
-    if (!type.trim()) {
-        errors.type = 'Type must not be empty';
+    if (!etat.trim()) {
+        errors.etat = 'Type must not be empty';
     }
     return {
         errors,
@@ -179,13 +180,13 @@ module.exports.validateCoucheInput = (date, type) => {
 }
 
 //sleep
-module.exports.validateSleepInput = (date, duree) => {
+module.exports.validateSleepInput = (dateDebut,dateFin) => {
     const errors = {};
-    if (!date.trim()) {
-        errors.date = 'Date must not be empty';
+    if (!dateDebut.trim()) {
+        errors.date = 'Date debut  must not be empty';
     }
-    if (!duree.trim()) {
-        errors.duree = 'Duree must not be empty';
+    if (!dateFin.trim()) {
+        errors.duree = 'Date fin must not be empty';
     }
     return {
         errors,
@@ -226,14 +227,14 @@ module.exports.validatePediatreInput = (firstName, lastName,town,adress,telephon
        isValid: Object.keys(errors).length < 1
     };
 }
-module.exports.validateTaskInput = (title,desc) => {
+module.exports.validateTaskInput = (title) => {
     const errors = {};
     if (!title.trim()) {
         errors.title = 'title must not be empty';
     }
-    if (!desc.trim()) {
+  /*  if (!desc.trim()) {
         errors.desc = 'desc must not be empty';
-    }
+    }*/
     return {
         errors,
        isValid: Object.keys(errors).length < 1
@@ -262,6 +263,37 @@ module.exports.validateArticleInput = (title,content) => {
   //  if (!content.trim()) {
      //   errors.content = 'content must not be empty';
     //}   
+    return {
+        errors,
+       isValid: Object.keys(errors).length < 1
+    };
+   
+}
+module.exports.validateAllergieInput    = (name,content) => {
+    const errors = {};
+    if (!name.trim()) {
+        errors.name = 'allergieName must not be empty';
+    }
+  //  if (!content.trim()) {
+     //   errors.content = 'content must not be empty';
+    //}   
+    return {
+        errors,
+       isValid: Object.keys(errors).length < 1
+    };
+
+}
+module.exports.validateCroissanceInput= (poids,taille , perimetre) => {
+    const errors = {};
+    if (!poids.trim()) {
+        errors.name = 'poids  must not be empty';
+    }
+    if (!taille.trim()) {
+        errors.name = 'taille  must not be empty';
+    }
+   if (!perimetre.trim()) {
+       errors.content = 'perimetre must not be empty';
+    }   
     return {
         errors,
        isValid: Object.keys(errors).length < 1

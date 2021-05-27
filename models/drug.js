@@ -7,11 +7,10 @@ const requiredString = {
 
 const drugSchema = new mongoose.Schema({
     name : requiredString,
-    date: {
-        required: true,
-        type:Date
-    },
-    babyID:requiredString
+    date:String ,
+    time:String,
+    dersc:String,
+    babyID:String
 })
 
 module.exports = mongoose.model('drug', drugSchema);

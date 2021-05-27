@@ -10,22 +10,22 @@ const {
   sleepRoute.post('/add', async (req,res) =>{
     //* validate user input
   const {
-    duree,
-    date,
+    //duree,
+    dateDebut,
+    dateFin,
     babyID
   } = req.body;
   const { isValid, errors } = validateSleepInput(
-    duree,
-    
-    date
+    dateDebut,
+    dateFin,
+    babyID
   );
   if (!isValid) {
     return res.status(400).json({ errors });
   }
   const newSleep = sleepModel({
-    duree
-    ,
-    date,
+    dateDebut,
+    dateFin,
     babyID
   });
   const createdSleep = await newSleep.save();
@@ -48,10 +48,11 @@ sleepRoute.get("/all", (req, res) => {
  
 // API: update @put sleep
 sleepRoute.put("/update/:id", async (req, res) => {
-    const { duree,date }=req.body;
+    const { dateDebut,dateFin,babyID }=req.body;
     const updatedSleep= await sleepModel.findByIdAndUpdate(req.params.id, {
-        duree,
-      date: Date(date)
+        dateDebut,
+    dateFin,
+    babyID
       } );
        if (!updatedSleep){
          return res.status(404).json({errors:"Sleep not updated or not there"})

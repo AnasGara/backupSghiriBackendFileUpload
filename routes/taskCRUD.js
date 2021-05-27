@@ -10,8 +10,6 @@ const {
     //* validate user input
   const {
     title,
-    status,
-    desc,
     parentID
   } = req.body;
   const { isValid, errors } = validateTaskInput(

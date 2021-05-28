@@ -15,7 +15,9 @@ const userSchema = new mongoose.Schema({
     address: String,
     town: String,
     password: requiredString,
-    email: requiredString
+    email: requiredString,
+    resetPasswordCode:String,
+    resetPasswordCodeExpiry:String
 })
 
 module.exports = mongoose.model('user', userSchema)

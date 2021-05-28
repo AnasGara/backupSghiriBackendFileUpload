@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express() // var 
 const mongoose = require('mongoose') 
@@ -6,8 +7,7 @@ var cors = require('cors')
 const multer = require('multer')
 const bodyParser=require('body-parser')
 
-//* dotenv activation
-require('dotenv').config()
+
 app.use(cors());
 
 //* connect to db

@@ -34,7 +34,7 @@ const {
   
   return res.status(201).json({ DrugStatus: "Created" });
 })
-
+//
 
 // get: @get all drugs
 drugRoute.get("/all", (req, res) => {

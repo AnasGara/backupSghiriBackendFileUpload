@@ -7,11 +7,8 @@ const requiredString = {
 
 const foodSchema = new mongoose.Schema({
     foodName: requiredString,
-    quantity: String,
-    date: {
-        type: Date,
-        required: true,
-    },
+    descr: String,
+    date: String,
     babyID: requiredString
 })
 

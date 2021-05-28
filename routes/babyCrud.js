@@ -3,7 +3,7 @@ const babyModel = require('../models/babies.js');
 const babyRoute = express.Router();
 const {
     validateBabyInput,
-    validateBottleInput
+  
   } = require("../utils/validator");
 
 
@@ -70,8 +70,9 @@ babyRoute.put("/update/:id", async (req, res) => {
   const updatedBaby= await babyModel.findByIdAndUpdate(req.params.id, {description,
     firstName,
     gender,
-    birthday: Date(birthday),
-    image,babyBottle} );
+    birthday,
+    image,
+    babyBottle} );
      if (!updatedBaby){
        return res.status(404).json({errors:"Baby not updated or not there"})
      } 

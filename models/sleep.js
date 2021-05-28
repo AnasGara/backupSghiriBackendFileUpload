@@ -6,12 +6,10 @@ const requiredString = {
 }
 
 const sleepSchema = new mongoose.Schema({
-    duree: requiredString,
-    date: {
-        required: true,
-        type:Date
-    },
-    babyID:requiredString
+   // duree: requiredString,
+    dateDebut:String,
+    dateFin:String,
+    babyID:String
 })
 
 module.exports = mongoose.model('sleep', sleepSchema);

@@ -7,8 +7,6 @@ const requiredString = {
 
 const taskSchema = new mongoose.Schema({
     title: requiredString,
-    desc:requiredString,
-    status:Boolean,
     parentID:requiredString
 })
 

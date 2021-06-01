@@ -83,4 +83,15 @@ heightRoute.delete("/delete/:id", (req, res) => {
             .json({ message: `post with id: '${id}' deleted`});
     });
 });
+heightRoute.post("/date/:id", (req, res) => {
+  const { date } =  req.body;
+  const { id } = req.params;
+  heightModel.find({ "date": date, "babyId": id}, (err, result) => {
+      if (!result)
+          return res.status(400)
+              .json({ errorMsg: `post with '${date}' id doesn't exist!!` });
+      return res.status(200)
+      .json(result);
+  });
+});
 module.exports = heightRoute;

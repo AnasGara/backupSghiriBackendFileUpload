@@ -7,7 +7,7 @@ const requiredString = {
 const weightSchema = new mongoose.Schema({
     measure: requiredString,
     date: {
-        type: Date,
+        type: String,
         required: true,
     },
     babyID: requiredString

@@ -29,7 +29,7 @@ const {
   const newArticle = articleModel({
     title,
     image,
-    content, date:Date(date),
+    content, date,
     subject
   });
   const createdArticle= await newArticle.save();
@@ -105,4 +105,16 @@ articleRoute.delete("/delete/:id", (req, res) => {
     });
 });
 
+//get by date "12/08/2021"
+
+articleRoute.post("/date", (req, res) => {
+  const { date } =  req.body;
+  articleModel.find({ "date": date}, (err, result) => {
+      if (!result)
+          return res.status(400)
+              .json({ errorMsg: `post with '${date}' id doesn't exist!!` });
+      return res.status(200)
+      .json(result);
+  });
+});
   module.exports = articleRoute;

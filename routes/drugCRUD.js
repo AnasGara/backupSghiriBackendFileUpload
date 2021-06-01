@@ -86,5 +86,17 @@ drugRoute.delete("/delete/:id", (req, res) => {
             .json({ message: `post with id: '${id}' deleted`});
     });
 });
+//get by date "12/08/2021"
 
+drugRoute.post("/date/:id", (req, res) => {
+  const { date } =  req.body;
+  const { id } = req.params;
+  drugModel.find({ "date": date, "babyId": id}, (err, result) => {
+      if (!result)
+          return res.status(400)
+              .json({ errorMsg: `post with '${date}' id doesn't exist!!` });
+      return res.status(200)
+      .json(result);
+  });
+});
 module.exports = drugRoute;

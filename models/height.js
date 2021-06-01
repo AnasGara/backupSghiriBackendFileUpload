@@ -9,7 +9,7 @@ const heightSchema = new mongoose.Schema({
     measure: requiredString,
     date: {
         required: true,
-        type:Date
+        type:String
     },
     babyID: requiredString
 })

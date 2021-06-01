@@ -102,9 +102,10 @@ croissanceRoute.delete("/delete/:id", (req, res) => {
 
 //get by date "12/08/2021"
 
-croissanceRoute.post("/date", (req, res) => {
+croissanceRoute.post("/date/:id", (req, res) => {
   const { date } =  req.body;
-  croissanceModel.find({ "date": date}, (err, result) => {
+  const { id } = req.params;
+  croissanceModel.find({ "date": date, "babyId": id}, (err, result) => {
       if (!result)
           return res.status(400)
               .json({ errorMsg: `post with '${date}' id doesn't exist!!` });

@@ -9,7 +9,7 @@ const rappelSchema = new mongoose.Schema({
     title: requiredString,
     desc:requiredString,
     date: {
-        type: Date,
+        type: String,
         required:true
     },
 

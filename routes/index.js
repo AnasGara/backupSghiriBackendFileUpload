@@ -40,6 +40,4 @@ routes.use('/article',articleRoute)
 routes.use('/allergie',allergieRoute);
 routes.use('/croissance',croissanceRoute);
 
-
-
 module.exports = routes;

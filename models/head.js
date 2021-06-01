@@ -7,7 +7,7 @@ const requiredString = {
 const headSchema = new mongoose.Schema({
     measure: requiredString,
     date: {
-        type: Date,
+        type: String,
         required: true,
     },
     babyID: requiredString

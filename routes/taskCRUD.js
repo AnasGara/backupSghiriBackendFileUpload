@@ -14,9 +14,9 @@ const {
     parentID
   } = req.body;
   const { isValid, errors } = validateTaskInput(
-    title,
-    date,
-    parentID
+      title,
+      date,
+      parentID
   );
   if (!isValid) {
     return res.status(400).json({ errors });
@@ -82,6 +82,17 @@ taskRoute.delete("/delete/:id", (req, res) => {
         return res.status(200)
             .json({ message: `post with id: '${id}' deleted`});
     });
+});
+taskRoute.post("/date/:id", (req, res) => {
+  const { date } =  req.body;
+  const { id } = req.params;
+  taskModel.find({ "date": date, "babyId": id}, (err, result) => {
+      if (!result)
+          return res.status(400)
+              .json({ errorMsg: `post with '${date}' id doesn't exist!!` });
+      return res.status(200)
+      .json(result);
+  });
 });
 
 module.exports = taskRoute;

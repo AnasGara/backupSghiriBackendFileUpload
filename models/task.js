@@ -7,7 +7,8 @@ const requiredString = {
 
 const taskSchema = new mongoose.Schema({
     title: requiredString,
-    parentID:requiredString
+    date :String,
+    parentID:String
 })
 
 module.exports = mongoose.model('task', taskSchema);

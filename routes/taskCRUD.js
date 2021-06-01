@@ -10,11 +10,12 @@ const {
     //* validate user input
   const {
     title,
+    date,
     parentID
   } = req.body;
   const { isValid, errors } = validateTaskInput(
     title,
-    desc,
+    date,
     parentID
   );
   if (!isValid) {
@@ -22,7 +23,7 @@ const {
   }
   const newTask = taskModel({
     title,
-    desc,
+    date,
     status:false,
     parentID
   });
@@ -60,10 +61,10 @@ taskRoute.get("/all", (req, res) => {
 
 // API: update @put
 taskRoute.put("/update/:id", async (req, res) => {
-    const { title,desc,status }=req.body;
+    const { title,date,status }=req.body;
     const updatedTask= await taskModel.findByIdAndUpdate(req.params.id, {
         title,status,
-      desc
+      date
       } );
        if (!updatedTask){
          return res.status(404).json({errors:"Task not updated or not there"})

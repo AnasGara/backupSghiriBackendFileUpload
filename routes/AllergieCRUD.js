@@ -90,4 +90,16 @@ allergieRoute.delete("/delete/:id", (req, res) => {
   });
 });
 
+//get by date "12/08/2021"
+
+allergieRoute.post("/date", (req, res) => {
+  const { date } =  req.body;
+  allergieModel.find({ "date": date}, (err, result) => {
+      if (!result)
+          return res.status(400)
+              .json({ errorMsg: `post with '${date}' id doesn't exist!!` });
+      return res.status(200)
+      .json(result);
+  });
+});
 module.exports = allergieRoute;

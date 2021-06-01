@@ -91,7 +91,7 @@ croissanceRoute.put("/update/:id", async (req, res) => {
 // @delete: delete  
 croissanceRoute.delete("/delete/:id", (req, res) => {
   const { id } = req.params;
-  allergieModel.findByIdAndDelete({ _id: id }, (err, result) => {
+  croissanceModel.findByIdAndDelete({ _id: id }, (err, result) => {
       if (err)
           return res.status(400)
               .json({ errorMsg: `id: '${id}' doesn't exist!!`});
@@ -99,5 +99,19 @@ croissanceRoute.delete("/delete/:id", (req, res) => {
           .json({ message: `post with id: '${id}' deleted`});
   });
 });
+
+//get by date "12/08/2021"
+
+croissanceRoute.post("/date", (req, res) => {
+  const { date } =  req.body;
+  croissanceModel.find({ "date": date}, (err, result) => {
+      if (!result)
+          return res.status(400)
+              .json({ errorMsg: `post with '${date}' id doesn't exist!!` });
+      return res.status(200)
+      .json(result);
+  });
+});
+
 
 module.exports = croissanceRoute;

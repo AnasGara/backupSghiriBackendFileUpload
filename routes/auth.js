@@ -62,7 +62,7 @@ authRoute.post("/signup", async (req, res) => {
   const JWT_PASSWORD = process.env.JWT_PASSWORD;
   const token = await jwt.sign({ id: createdUser._id, email }, JWT_PASSWORD);
  
-  return res.status(201).json({ user: { token, userID: createdUser._id } });
+  return res.status(201).json({  token, userID: createdUser._id, email,firstName,lastName,phoneNumber } );
 });
  
 authRoute.post("/login", async (req, res) => {
@@ -95,7 +95,7 @@ authRoute.post("/login", async (req, res) => {
   const JWT_PASSWORD = process.env.JWT_PASSWORD;
  
   const token = await jwt.sign({ id: user._id, email }, JWT_PASSWORD);
-  return res.status(201).json({ user: { token, userID: user._id } });
+  return res.status(201).json({ token, userID: user._id, email });
 });
  
 authRoute.post("/requestReset", async (req, res) => {

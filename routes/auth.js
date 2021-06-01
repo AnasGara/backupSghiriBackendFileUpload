@@ -64,9 +64,8 @@ authRoute.post("/signup", async (req, res) => {
   const JWT_PASSWORD = process.env.JWT_PASSWORD;
   const token = await jwt.sign({ id: createdUser._id, email }, JWT_PASSWORD);
 
-  return res.status(201).json({ user: {token, userID: createdUser._id } });
   return res.status(201).json(
-    { user: { token, userID: createdUser._id, firstName,lastName, email, phoneNumber, password}});
+    {  token, userID: createdUser._id, firstName,lastName, email, phoneNumber, password});
 
 });
 

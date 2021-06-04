@@ -6,7 +6,9 @@ const routes = require('./routes')
 var cors = require('cors')
 const multer = require('multer')
 const bodyParser=require('body-parser')
-
+const http = require("http");
+const path = require("path");
+const fs = require("fs");
 
 app.use(cors());
 
@@ -16,6 +18,9 @@ mongoose.connect(DB_URI, (err) => {
    if (err) throw new Error(err)
    console.log(`connected to db on ${DB_URI}`);
 })
+
+
+
 
 //* body parser activation
 app.use(express.json())
